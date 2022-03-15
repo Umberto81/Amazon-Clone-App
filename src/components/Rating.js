@@ -64,6 +64,7 @@ export default function Rating(props) {
           aria-hidden="true"
         ></i>
       </span>
+      <span>{numReviews + ' reviews'}</span>
     </div>
   );
 }
