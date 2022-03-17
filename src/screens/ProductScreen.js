@@ -1,9 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Product from "../components/Product";
 import Rating from "../components/Rating";
 import data from "../data";
 
 export default function ProductScreen(props) {
+  const params = useParams();
+  const slug = params;
   const product = data.products.find((x) => x._id === props.match.params.id);
   if (!product) {
     return <div>Product not found</div>;
@@ -12,7 +15,7 @@ export default function ProductScreen(props) {
     <>
       <div className="row">
         <div className="col-2">
-          <img className="large" src={Product.image} alt={Product.name}></img>
+          <img className="large" src={product.image} alt={product.name}></img>
         </div>
         <div className="col-1">
           <ul>

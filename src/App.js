@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
@@ -8,9 +8,9 @@ function App() {
     <div className="grid-container">
       <header className="row">
         <div>
-          <a className="brand" href="/">
+          <Link to='/' className="brand">
             Amazon
-          </a>
+          </Link>
         </div>
         <div>
           <a href="/cart">Cart</a>
@@ -20,7 +20,7 @@ function App() {
       <main>
         <Routes>
         <Route exact path="/" element={<HomeScreen/>} ></Route> 
-        <Route path="/product/:id" element={<ProductScreen/>}></Route>
+        <Route path="/product/:" element={<ProductScreen/>}></Route>
         </Routes>
         
       </main>

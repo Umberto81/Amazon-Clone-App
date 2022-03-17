@@ -1,8 +1,8 @@
 const data = {
   products: [
     {
-      _id: 1,
       name: "Nike Shirt",
+      slug: "nike-shirt",
       category: "Shirts",
       image: "./images/p1.jpg",
       pice: 120,
@@ -12,8 +12,8 @@ const data = {
       description: "High quality product",
     },
     {
-      _id: 2,
-      name: "Adidas Shirt",
+      name: "Adidas fit Shirt",
+      slug: "adidas-fit-shirt",
       category: "Shirts",
       image: "./images/p1.jpg",
       pice: 120,
@@ -25,6 +25,7 @@ const data = {
     {
       _id: 3,
       name: "Lacoste Shirt",
+      slug: "lacoste-shirt",
       category: "Shirts",
       image: "./images/p1.jpg",
       pice: 300,
@@ -34,8 +35,8 @@ const data = {
       description: "High quality product",
     },
     {
-      _id: 4,
       name: "Pants Adidas",
+      slug: "adidas-pants",
       category: "Pants",
       image: "./images/p1.jpg",
       pice: 80,
@@ -45,8 +46,8 @@ const data = {
       description: "High quality product",
     },
     {
-      _id: 5,
       name: "Puma",
+      slug: "puma-shirt",
       category: "Pants",
       image: "./images/p1.jpg",
       pice: 80,
@@ -56,8 +57,8 @@ const data = {
       description: "High quality product",
     },
     {
-      _id: 6,
       name: "Adidas Shirt",
+      slug: "adidas-shirt",
       category: "Shirts",
       image: "./images/p1.jpg",
       pice: 350,
