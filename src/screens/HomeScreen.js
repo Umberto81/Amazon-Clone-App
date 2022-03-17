@@ -3,6 +3,7 @@ import React, { useEffect, useReducer, useState } from 'react'
 import Product from '../components/Product';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
+import { Col, Row } from 'react-bootstrap';
 
 const reducer = (state, action) =>{
   switch (action.type) {
@@ -39,14 +40,20 @@ export default function HomeScreen() {
   }, [])
   
   return (
-    <div className="row center">
+    <div className="products">
+      <Row>
           {
           loading ? (<div>Loading...</div>) : error ? (<div>Error</div>) : 
           (products.map((product) => (
+            <Col  key={product.slug} sm={6} md={4} lg={3} className='b-3'>
+
             <Product key={product.slug} product={product}></Product>
-          )))
+            </Col>
+
+            )))
           }
           ;
+          </Row>
         </div>
   )
 }
