@@ -1,5 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react'
-//import data from '../data';
+import React, { useEffect, useReducer } from 'react'
 import Product from '../components/Product';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
@@ -17,6 +16,7 @@ const reducer = (state, action) =>{
       return state;
   }
 }
+
 export default function HomeScreen() {
   const [{loading, error, products}, dispatch] = useReducer(logger(reducer), {
     products: [],
@@ -33,7 +33,6 @@ export default function HomeScreen() {
       } catch (error) {
         dispatch({type: "FETCH_FAIL", payload: error.message});
       }
-      //setProducts(result.data);
     }
     fetchData();
 

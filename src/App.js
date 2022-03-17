@@ -23,11 +23,11 @@ function App() {
           </div>
         </header>
         <main>
-          <Container>
+          <Container className="mt-3">
             <h1>Featured Products</h1>
             <Routes>
               <Route exact path="/" element={<HomeScreen />}></Route>
-              <Route path="/product/:" element={<ProductScreen />}></Route>
+              <Route path="/product/:slug" element={<ProductScreen />}></Route>
             </Routes>
           </Container>
         </main>
