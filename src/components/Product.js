@@ -1,24 +1,23 @@
 import React from "react";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
 export default function Product(props) {
   const { product } = props;
   return (
-    <div key={product.slug} className="card">
+    <Card className="product">
       <Link to={`/product/${product.slug}`}>
-      <img className="medium" src={product.image} alt={product.name} />
+        <img src={product.image} className="card-img-top" alt={product.name} />
       </Link>
-      <Link to={`/product/${product.slug}`}>
-          <h2>{product.name}</h2>
-      </Link>
-      <div className="card-body">
-
+      <Card.Body>
+        <Link to={`/product/${product.slug}`}>
+          <Card.Title>{product.name}</Card.Title>
+        </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-
-        <div className="price"><strong>${product.pice}</strong></div>
-        <button>Add to cart</button>
-      </div>
-    </div>
+        <Card.Text>${product.pice}</Card.Text>
+        <Button>Add Item</Button>
+      </Card.Body>
+    </Card>
   );
 }

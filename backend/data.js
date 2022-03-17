@@ -23,7 +23,6 @@ const data = {
       description: "High quality product",
     },
     {
-      _id: 3,
       name: "Lacoste Shirt",
       slug: "lacoste-shirt",
       category: "Shirts",
