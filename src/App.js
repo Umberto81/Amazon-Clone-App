@@ -4,11 +4,15 @@ import { LinkContainer } from "react-router-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
+        <Helmet>
+          <title>Amazon</title>
+        </Helmet>
         <header>
           <Navbar bg="dark" variant="dark">
             <Container>
