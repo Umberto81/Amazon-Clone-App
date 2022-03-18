@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id:'1',
       name: "Nike Shirt",
       slug: "nike-shirt",
       category: "Shirts",
@@ -13,6 +14,7 @@ const data = {
       countInStock: 2
     },
     {
+      _id:'2',
       name: "Adidas fit Shirt",
       slug: "adidas-fit-shirt",
       category: "Shirts",
@@ -26,6 +28,7 @@ const data = {
 
     },
     {
+      _id:'3',
       name: "Lacoste Shirt",
       slug: "lacoste-shirt",
       category: "Shirts",
@@ -39,6 +42,7 @@ const data = {
 
     },
     {
+      _id:'4',
       name: "Pants Adidas",
       slug: "adidas-pants",
       category: "Pants",
@@ -52,6 +56,7 @@ const data = {
 
     },
     {
+      _id:'5',
       name: "Puma",
       slug: "puma-shirt",
       category: "Pants",
@@ -65,6 +70,7 @@ const data = {
 
     },
     {
+      _id:'6',
       name: "Adidas Shirt",
       slug: "adidas-shirt",
       category: "Shirts",

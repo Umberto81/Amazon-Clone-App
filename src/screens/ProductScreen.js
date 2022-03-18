@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useContext, useEffect, useReducer } from "react";
 import { Card, Col, ListGroup, Row, Badge, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import Image from 'react-bootstrap/Image';
+import Image from "react-bootstrap/Image";
 import Rating from "../components/Rating";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
-import {Store} from "../Store";
+import { Store } from "../Store";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -26,6 +26,7 @@ const reducer = (state, action) => {
 export default function ProductScreen(props) {
   const params = useParams();
   const { slug } = params;
+
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     product: [],
     loading: true,
@@ -45,13 +46,22 @@ export default function ProductScreen(props) {
     fetchData();
   }, [slug]);
 
-  const {state, dispatch: ctxDispatch} = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
 
-  const addToCartHandler = () =>{
+  const addToCartHandler = async () => {
+    //checks if the item exists into the shopping cart
+    const itemExists = cart.cartItems.find((x) => x._id === product._id);
+    const quantity = itemExists ? itemExists.quantity + 1 : 1;
+    const {data} = await axios.get(`/api/products/${product._id}`);
+    if(data.countInStock < quantity){
+      window.alert('Product out of stock');
+      return;
+    }
     ctxDispatch({
       type: "CART-ADD-ITEM",
-       payload: {...product, quantity: 1 },
-      });
+      payload: { ...product, quantity },
+    });
   };
 
   return loading ? (
@@ -63,7 +73,8 @@ export default function ProductScreen(props) {
       <Row>
         <Col md={5}>
           <Image
-            className="img-large" fluid
+            className="img-large"
+            fluid
             src={product.image}
             alt={product.name}
           />
@@ -112,7 +123,9 @@ export default function ProductScreen(props) {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">Add to cart</Button>
+                      <Button onClick={addToCartHandler} variant="primary">
+                        Add to cart
+                      </Button>
                     </div>
                   </ListGroup.Item>
                 )}
