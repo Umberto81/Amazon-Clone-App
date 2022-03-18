@@ -15,7 +15,7 @@ export default function Product(props) {
           <Card.Title>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.pice}</Card.Text>
+        <Card.Text>${product.price}</Card.Text>
         <Button>Add Item</Button>
       </Card.Body>
     </Card>
