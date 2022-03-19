@@ -7,6 +7,7 @@ import ProductScreen from "./screens/ProductScreen";
 import { Helmet } from "react-helmet-async";
 import {Store} from "./Store";
 import CartScreen from "./screens/cartScreen";
+import SignInScreen from "./SignInScreen";
 
 function App() {
   const {state} = useContext(Store);
@@ -45,6 +46,7 @@ const {cart} = state;
               <Route exact path="/" element={<HomeScreen />}></Route>
               <Route path="/product/:slug" element={<ProductScreen />}></Route>
               <Route path="/cart" element={<CartScreen />}></Route>
+              <Route path="/signin" element={<SignInScreen />}></Route>
 
             </Routes>
           </Container>
