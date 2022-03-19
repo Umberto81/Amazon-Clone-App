@@ -54,16 +54,16 @@ export default function ProductScreen(props) {
     //checks if the item exists into the shopping cart
     const itemExists = cart.cartItems.find((x) => x._id === product._id);
     const quantity = itemExists ? itemExists.quantity + 1 : 1;
-    const {data} = await axios.get(`/api/products/${product._id}`);
-    if(data.countInStock < quantity){
-      window.alert('Product out of stock');
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock < quantity) {
+      window.alert("Product out of stock");
       return;
     }
     ctxDispatch({
       type: "CART-ADD-ITEM",
       payload: { ...product, quantity },
     });
-    navigate('/cart');
+    navigate("/cart");
   };
 
   return loading ? (
