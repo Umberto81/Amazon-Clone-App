@@ -19,7 +19,7 @@ export default function SignInScreen() {
         email,
         password,
       });
-      
+      console.log(data);
     } catch (err) {
     }
   };
