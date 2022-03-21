@@ -85,7 +85,6 @@ export default function CartScreen() {
                       <Button
                         variant="light"
                         onClick={() => removeItemHandler(item)}
-                        disabled={item.quantity === 1}
                       >
                         <i className="fas fa-trash"></i>
                       </Button>

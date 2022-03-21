@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Store } from "./Store";
+import { toast } from "react-toastify";
+import { getError } from "./utils";
 
 export default function SignInScreen() {
   const { search } = useLocation();
@@ -11,19 +14,30 @@ export default function SignInScreen() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
+  const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/signin', {
+      const { data } = await axios.post("/api/users/signin", {
         email,
         password,
       });
-      console.log(data);
+      ctxDispatch({ type: "USER_SIGNIN", payload: data });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      navigate(redirect || "/");
     } catch (err) {
+      toast.error(getError(err));
     }
   };
 
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
 
   return (
     <Container className="small-container">
