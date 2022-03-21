@@ -1,7 +1,6 @@
 const data = {
   products: [
     {
-      _id:'1',
       name: "Nike Shirt",
       slug: "nike-shirt",
       category: "Shirts",
@@ -11,10 +10,9 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "High quality product",
-      countInStock: 2
+      countInStock: 2,
     },
     {
-      _id:'2',
       name: "Adidas fit Shirt",
       slug: "adidas-fit-shirt",
       category: "Shirts",
@@ -24,11 +22,9 @@ const data = {
       rating: 4.0,
       numReviews: 10,
       description: "High quality product",
-      countInStock: 4
-
+      countInStock: 4,
     },
     {
-      _id:'3',
       name: "Lacoste Shirt",
       slug: "lacoste-shirt",
       category: "Shirts",
@@ -38,11 +34,9 @@ const data = {
       rating: 2.5,
       numReviews: 5,
       description: "High quality product",
-      countInStock: 0
-
+      countInStock: 0,
     },
     {
-      _id:'4',
       name: "Pants Adidas",
       slug: "adidas-pants",
       category: "Pants",
@@ -52,11 +46,9 @@ const data = {
       rating: 2.5,
       numReviews: 3,
       description: "High quality product",
-      countInStock: 20
-
+      countInStock: 20,
     },
     {
-      _id:'5',
       name: "Puma",
       slug: "puma-shirt",
       category: "Pants",
@@ -66,11 +58,9 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "High quality product",
-      countInStock: 5
-
+      countInStock: 5,
     },
     {
-      _id:'6',
       name: "Adidas Shirt",
       slug: "adidas-shirt",
       category: "Shirts",
@@ -80,7 +70,7 @@ const data = {
       rating: 4.5,
       numReviews: 20,
       description: "High quality product",
-      countInStock: 0
+      countInStock: 0,
     },
   ],
 };
