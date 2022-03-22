@@ -7,9 +7,10 @@ import ProductScreen from "./screens/ProductScreen";
 import { Helmet } from "react-helmet-async";
 import { Store } from "./Store";
 import CartScreen from "./screens/cartScreen";
-import SignInScreen from "./SignInScreen";
+import SignInScreen from "./screens/SignInScreen";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -18,6 +19,8 @@ function App() {
   const signoutHandler = () => {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
+    localStorage.removeItem("shippingAddress");
+
   };
   return (
     <BrowserRouter>
@@ -79,6 +82,8 @@ function App() {
               <Route path="/product/:slug" element={<ProductScreen />}></Route>
               <Route path="/cart" element={<CartScreen />}></Route>
               <Route path="/signin" element={<SignInScreen />}></Route>
+              <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
+
             </Routes>
           </Container>
         </main>
