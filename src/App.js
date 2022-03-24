@@ -11,6 +11,8 @@ import SignInScreen from "./screens/SignInScreen";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import SignUpScreen from "./screens/SignUpSCreen";
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -20,6 +22,7 @@ function App() {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
 
   };
   return (
@@ -82,7 +85,9 @@ function App() {
               <Route path="/product/:slug" element={<ProductScreen />}></Route>
               <Route path="/cart" element={<CartScreen />}></Route>
               <Route path="/signin" element={<SignInScreen />}></Route>
+              <Route path="/signup" element={<SignUpScreen />}></Route>
               <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
+              <Route path="/payment" element={<PaymentMethodScreen />}></Route>
 
             </Routes>
           </Container>
